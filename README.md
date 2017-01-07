@@ -19,16 +19,10 @@ Create a requirement:
 $requirement = new ListType(
     new ObjectType([
         'foo' => new StringType(),
-        'bar' => new StringType()
-    ]),
-    new ObjectType([
-        'foo' => new StringType(),
-        'bar' => new IntType()
-    ]),
-    new ObjectType([
-        'foo' => new AnyType(),
-        'bar' => new IntType()
-    ]),
+        'bar' => new IntType(),
+        'buzz' => new AnyType(),
+        'foobar' => new NullableType(new StringType())
+    ])
 );
 ```
 Have some sort of external data you want to check.
@@ -37,12 +31,17 @@ $data = [
     [
         'foo' => 'foe',
         'bar' => 'baz',
+        'buzz' => 'foe',
+        'foobar' => null
     ], [
         'foo' => 'foe',
         'bar' => 7,
+        'buzz' => 'foe',
+        'foobar' => 'baz',
     ], [
         'foo' => [],
-        'bar' => 'baz',
+        'bar' => 9.1,
+        'foobar' => 'baz',
     ],
 ];
 ```
