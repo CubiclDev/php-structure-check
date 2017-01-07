@@ -4,10 +4,13 @@ namespace spec\StructureCheck;
 
 use StructureCheck\Result;
 use PhpSpec\ObjectBehavior;
-use Prophecy\Argument;
 
 class ResultSpec extends ObjectBehavior
 {
+    function let() {
+        $this->beConstructedWith(true, []);
+    }
+
     function it_is_initializable()
     {
         $this->shouldHaveType(Result::class);
