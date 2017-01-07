@@ -17,4 +17,4 @@ install:
   - composer install
 
 script:
-   - vendor/bin/phpspec
+   - vendor/bin/phpspec run --no-interaction
