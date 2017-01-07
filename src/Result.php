@@ -36,7 +36,7 @@ class Result implements ResultInterface
      */
     public function isValid()
     {
-        return true;
+        return $this->valid;
     }
 
     /**
@@ -44,6 +44,6 @@ class Result implements ResultInterface
      */
     public function getErrors()
     {
-        return [];
+        return $this->errors;
     }
 }

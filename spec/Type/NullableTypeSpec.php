@@ -2,9 +2,9 @@
 
 namespace spec\StructureCheck\Type;
 
+use StructureCheck\Result;
 use StructureCheck\Type\NullableType;
 use PhpSpec\ObjectBehavior;
-use Prophecy\Argument;
 use StructureCheck\Type\TypeInterface;
 
 class NullableTypeSpec extends ObjectBehavior
@@ -13,5 +13,16 @@ class NullableTypeSpec extends ObjectBehavior
     {
         $this->beConstructedWith($childType);
         $this->shouldHaveType(NullableType::class);
+    }
+
+    function it_should_return_valid_for_null(TypeInterface $childType) {
+        $this->beConstructedWith($childType);
+        $this->check(null)->isValid()->shouldBe(true);
+    }
+
+    function it_should_return_the_value_from_the_child(TypeInterface $childType) {
+        $this->beConstructedWith($childType);
+        $childType->check(false)->willReturn(new Result(false, []));
+        $this->check(false)->isValid()->shouldBe(false);
     }
 }

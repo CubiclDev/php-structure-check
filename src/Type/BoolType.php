@@ -20,7 +20,7 @@ class BoolType implements TypeInterface
      */
     public function check($value)
     {
-        $checkResult = is_string($value);
+        $checkResult = is_bool($value);
 
         return new Result(
             $checkResult,

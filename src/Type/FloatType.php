@@ -2,14 +2,14 @@
 
 namespace StructureCheck\Type;
 
+use StructureCheck\Result;
+
 class FloatType implements TypeInterface
 {
     private static $errorMessage = 'The value %s is not a float.';
 
     /**
-     * @param mixed $value
-     *
-     * @return ResultInterface
+     * @inheritdoc
      */
     public function check($value)
     {
