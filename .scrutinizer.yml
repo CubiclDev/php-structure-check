@@ -6,6 +6,11 @@ tools:
     config:
       standard: PSR2
 
+checks:
+    php:
+        code_rating: true
+        duplication: true
+
 filter:
   excluded_paths:
     - docs/*

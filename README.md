@@ -2,6 +2,9 @@ PHP Structure Check
 ===================
 
 [![Build Status](https://travis-ci.org/1blankz7/php-structure-check.svg?branch=master)](https://travis-ci.org/1blankz7/php-structure-check)
+[![Latest Stable Version](https://poser.pugx.org/1blankz7/php-structure-check/v/stable)](https://packagist.org/packages/1blankz7/php-structure-check)
+[![Total Downloads](https://poser.pugx.org/1blankz7/php-structure-check/downloads)](https://packagist.org/packages/1blankz7/php-structure-check)
+[![License](https://poser.pugx.org/1blankz7/php-structure-check/license)](https://packagist.org/packages/1blankz7/php-structure-check)
 
 This library can check a complex array structure against a given requirement.
 The purpose of this library is to create a better experience when testing a result set from an api or something similar.
