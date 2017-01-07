@@ -45,7 +45,7 @@ class ListType implements TypeInterface
         foreach ($value as $item) {
             $result = $this->child->check($item);
 
-            $valid &= $result->isValid();
+            $valid = $valid && $result->isValid();
             $errors += $result->getErrors();
         }
 

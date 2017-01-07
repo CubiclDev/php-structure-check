@@ -40,7 +40,7 @@ class ObjectType implements TypeInterface
             }
 
             $result = $child->check($value[$key]);
-            $valid &= $result->isValid();
+            $valid = $valid && $result->isValid();
             $errors += $result->getErrors();
         }
 
