@@ -1,0 +1,4 @@
+suites:
+  structure_check_suite:
+    namespace: StructureCheck
+    psr4_prefix: StructureCheck
