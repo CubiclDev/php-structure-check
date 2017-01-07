@@ -12,10 +12,10 @@ interface CheckerInterface
 {
 
     /**
-     * @param array $tested
+     * @param mixed $element the element which should be tested
      * @param TypeInterface $requirement
      *
      * @return ResultInterface
      */
-    public function fulfills(array $tested, TypeInterface $requirement);
+    public function fulfills($element, TypeInterface $requirement);
 }

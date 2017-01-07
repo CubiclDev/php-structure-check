@@ -14,7 +14,7 @@ class Checker implements CheckerInterface
     /**
      * @inheritdoc
      */
-    public function fulfills(array $argument1, TypeInterface $requirement)
+    public function fulfills($argument1, TypeInterface $requirement)
     {
         return new Result(true, []);
     }
