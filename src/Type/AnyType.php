@@ -15,6 +15,6 @@ class AnyType implements TypeInterface
      */
     public function check($value)
     {
-        return new Result(true, []);
+        return new Result(true);
     }
 }
