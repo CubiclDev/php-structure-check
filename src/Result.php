@@ -25,7 +25,7 @@ class Result implements ResultInterface
      * @param bool $valid
      * @param array $errors
      */
-    public function __construct($valid, array $errors)
+    public function __construct($valid, array $errors = [])
     {
         $this->valid = $valid;
         $this->errors = $errors;

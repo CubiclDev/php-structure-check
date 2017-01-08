@@ -22,6 +22,6 @@ class CheckerSpec extends ObjectBehavior
     function it_returns_the_result_of_the_type_in_fulfills(TypeInterface $type, ResultInterface $result)
     {
         $type->check([])->willReturn($result);
-        $this->fulfills([], $type)->shouldBeAnInstanceOf(ResultInterface::class);
+        $this->fulfills([], $type)->shouldBe($result);
     }
 }
