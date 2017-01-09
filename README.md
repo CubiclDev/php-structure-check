@@ -63,6 +63,7 @@ Currently the following types are supported:
  * Any
  * Nullable
  * Bool
+ * Numeric
  * Float
  * Int
  * String
