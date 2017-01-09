@@ -55,3 +55,22 @@ $result = Checker::fulfills($data, $requirement);
 The returned object holds information about the analysis. You can
 check the result by calling `isValid()` on the result object. To
 fetch the errors, simply call `getErrors`.
+
+## Supported Types
+
+Currently the following types are supported:
+
+ * Any
+ * Nullable
+ * Bool
+ * Numeric
+ * Float
+ * Int
+ * String
+ * Object
+ * List
+ 
+There are some open issues with ideas for more types. Feel free to send pull requests.
+
+Additionally you can implement the `TypeInterface` and use your own type implementations.
+ 
