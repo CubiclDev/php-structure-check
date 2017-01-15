@@ -69,6 +69,7 @@ Currently the following types are supported:
  * String
  * Object
  * List
+ * Datetime
  
 There are some open issues with ideas for more types. Feel free to send pull requests.
 
