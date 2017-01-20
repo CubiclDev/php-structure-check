@@ -2,6 +2,7 @@
 
 namespace StructureCheck\Check;
 
+use StructureCheck\Result;
 use StructureCheck\Type\TypeInterface;
 
 /**
@@ -10,6 +11,15 @@ use StructureCheck\Type\TypeInterface;
  */
 class NumericRangeCheck implements TypeInterface
 {
+    /**
+     * @var string
+     */
+    private static $lowerBoundErrorMessage = 'The given lower bound %f is greater than the given value %f.';
+
+    /**
+     * @var string
+     */
+    private static $upperBoundErrorMessage = 'The given upper bound %f is smaller than the given value %f.';
 
     /**
      * @var TypeInterface
@@ -17,20 +27,52 @@ class NumericRangeCheck implements TypeInterface
     private $child;
 
     /**
-     * NumericRangeCheck constructor.
-     *
-     * @param TypeInterface $child
+     * @var int
      */
-    public function __construct(TypeInterface $child)
+    private $lowerBound;
+
+    /**
+     * @var int
+     */
+    private $upperBound;
+
+    /**
+     * @param TypeInterface $child
+     * @param int $upperBound
+     * @param int $lowerBound
+     */
+    public function __construct(TypeInterface $child, $upperBound, $lowerBound)
     {
         $this->child = $child;
+        $this->upperBound = $upperBound;
+        $this->lowerBound = $lowerBound;
     }
 
     /**
-     * @param $argument1
+     * @inheritdoc
      */
-    public function check($argument1)
+    public function check($value)
     {
-        // TODO: write logic here
+        $result = $this->child->check($value);
+
+        if (!$result->isValid()) {
+           return $result;
+        }
+
+        if ($this->lowerBound > $value) {
+            return new Result(
+                false,
+                [sprintf(self::$lowerBoundErrorMessage, $this->lowerBound, $value)]
+            );
+        }
+
+        if ($this->upperBound < $value) {
+            return new Result(
+                false,
+                [sprintf(self::$upperBoundErrorMessage, $this->upperBound, $value)]
+            );
+        }
+
+        return new Result(true);
     }
 }
