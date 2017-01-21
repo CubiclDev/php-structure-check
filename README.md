@@ -76,3 +76,8 @@ There are some open issues with ideas for more types. Feel free to send pull req
 
 Additionally you can implement the `TypeInterface` and use your own type implementations.
  
+## Checks
+
+Checks are special types which can be used to add more rules to a field. So you can check
+the length of a string, the count of elements in an array or determine if
+a numeric value is in a given range.
