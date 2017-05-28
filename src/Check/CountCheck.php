@@ -55,14 +55,14 @@ class CountCheck implements TypeInterface
             return $result;
         }
 
-        if ($value instanceof Countable) {
+        if (!$value instanceof Countable) {
             return new Result(
                 false,
                 [sprintf(self::$countableErrorMessage, json_encode($value))]
             );
         }
 
-        if (count($value) === $this->count) {
+        if (count($value) !== $this->count) {
             return new Result(
                 false,
                 [sprintf(self::$countErrorMessage, json_encode($value), $this->count)]
