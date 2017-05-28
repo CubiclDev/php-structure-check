@@ -71,6 +71,7 @@ Currently the following types are supported:
  * List
  * Datetime
  * Regex
+ * Optional
  
 There are some open issues with ideas for more types. Feel free to send pull requests.
 

@@ -13,12 +13,16 @@
         }
     ],
     "require-dev": {
-        "phpspec/phpspec": "^3.2"
+        "phpspec/phpspec": "^3.2",
+        "phpunit/phpunit": "^6.1"
     },
     "autoload": {
         "psr-4": {
             "StructureCheck\\": [
                 "src"
+            ],
+            "StructureCheck\\Test\\": [
+                "tests"
             ]
         }
     }

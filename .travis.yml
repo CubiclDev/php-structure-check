@@ -18,3 +18,4 @@ install:
 
 script:
    - vendor/bin/phpspec run --no-interaction
+   - vendor/bin/phpunit tests

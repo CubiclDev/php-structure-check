@@ -33,8 +33,10 @@ class ObjectType implements TypeInterface
 
         foreach ($this->children as $key => $child) {
             if (!array_key_exists($key, $value)) {
-                $valid = false;
-                $errors[] = sprintf(self::$missingKeyErrorMessage, $key);
+                if (!$child instanceof OptionalType) {
+                    $valid = false;
+                    $errors[] = sprintf(self::$missingKeyErrorMessage, $key);
+                }
 
                 continue;
             }
