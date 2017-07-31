@@ -24,7 +24,10 @@ $requirement = new ListType(
         'foo' => new StringType(),
         'bar' => new IntType(),
         'buzz' => new AnyType(),
-        'foobar' => new NullableType(new StringType())
+        'foobar' => new NullableType(new StringType()),
+        'nested' => new ObjectType([
+            'foobar' => new StringType(),
+        ]),
     ])
 );
 ```
@@ -35,16 +38,25 @@ $data = [
         'foo' => 'foe',
         'bar' => 'baz',
         'buzz' => 'foe',
-        'foobar' => null
+        'foobar' => null,
+        'nested' => [
+            'foobar' => 'buzz',
+        ],
     ], [
         'foo' => 'foe',
         'bar' => 7,
         'buzz' => 'foe',
         'foobar' => 'baz',
+        'nested' => [
+            'foobar' => 'bozz',
+        ],
     ], [
         'foo' => [],
         'bar' => 9.1,
         'foobar' => 'baz',
+        'nested' => [
+            'foobar' => 'bazz',
+        ],
     ],
 ];
 ```
