@@ -11,7 +11,7 @@ use StructureCheck\ResultInterface;
  * Class DatetimeType
  * @package StructureCheck\Type
  */
-class DatetimeType
+class DatetimeType implements TypeInterface
 {
     /**
      * @var string
