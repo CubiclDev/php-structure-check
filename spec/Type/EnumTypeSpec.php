@@ -16,7 +16,7 @@ class EnumTypeSpec extends ObjectBehavior
 
     function it_is_valid_for_all_allowed_values()
     {
-        $this->beConstructedWith(['test', 1, ['array'], null]);
+        $this->beConstructedWith(['test', 1, null]);
 
         $this->check('test')->isValid()->shouldBe(true);
         $this->check(1)->isValid()->shouldBe(true);
@@ -25,7 +25,7 @@ class EnumTypeSpec extends ObjectBehavior
 
     function it_is_invalid_for_not_allowed_values()
     {
-        $this->beConstructedWith(['test', 1, ['array'], null]);
+        $this->beConstructedWith(['test', 1, null]);
         
         $this->check('array')->isValid()->shouldBe(false);
         $this->check(100)->isValid()->shouldBe(false);
