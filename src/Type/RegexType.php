@@ -9,7 +9,7 @@ use StructureCheck\ResultInterface;
  * Class RegexType
  * @package StructureCheck\Type
  */
-class RegexType
+class RegexType implements TypeInterface
 {
     /**
      * @var string

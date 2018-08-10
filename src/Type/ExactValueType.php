@@ -5,7 +5,7 @@ namespace StructureCheck\Type;
 use StructureCheck\Result;
 use StructureCheck\ResultInterface;
 
-class ExactValueType
+class ExactValueType implements TypeInterface
 {
 
     /**
