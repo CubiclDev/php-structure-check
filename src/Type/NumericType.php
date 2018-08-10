@@ -5,7 +5,7 @@ namespace StructureCheck\Type;
 use StructureCheck\Result;
 use StructureCheck\ResultInterface;
 
-class NumericType
+class NumericType implements TypeInterface
 {
     private static $errorMessage = 'The value %s is not a numeric value.';
 
