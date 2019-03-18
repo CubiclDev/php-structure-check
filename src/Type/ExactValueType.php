@@ -13,6 +13,9 @@ class ExactValueType implements TypeInterface
      */
     private static $errorMessage = 'The value %s is not the same value as %s.';
 
+    /** @var mixed */
+    private $value;
+
     /**
      * ExactValueType constructor.
      *

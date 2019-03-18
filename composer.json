@@ -1,20 +1,27 @@
 {
-    "name":         "1blankz7/php-structure-check",
-    "description":  "Structural check of arrays for PHP 5.6+",
+    "name":         "cubicl/php-structure-check",
+    "description":  "Structural check of arrays for PHP 7.1+",
     "keywords":     ["array", "structure", "types"],
-    "homepage":     "https://github.com/1blankz7/php-structure-check",
+    "homepage":     "https://github.com/cubicldev/php-structure-check",
     "type":         "library",
     "license":      "MIT",
     "authors":      [
         {
             "name":      "Christian Blank",
-            "email":     "mail@cblank.de",
-            "homepage":  "http://cblank.de"
+            "email":     "christian@cubicl.de",
+            "homepage":  "https://cubicl.de"
         }
     ],
+    "scripts": {
+        "check": ["@analyze", "@tests", "@tests-spec"],
+        "tests": "phpunit tests",
+        "analyze": "phpstan analyse --level 0 src",
+        "tests-spec": "phpspec run --no-interaction"
+    },
     "require-dev": {
-        "phpspec/phpspec": "^3.2",
-        "phpunit/phpunit": "^5.6"
+        "phpspec/phpspec": "^5.1.0",
+        "phpunit/phpunit": "^7",
+        "phpstan/phpstan": "^0.11.4"
     },
     "autoload": {
         "psr-4": {
