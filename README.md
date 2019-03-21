@@ -10,7 +10,7 @@ The purpose of this library is to create a better experience when testing a resu
 ## Installation
 
 ```
-composer require 1blankz7/php-structure-check
+composer require cubicl/php-structure-check
 ```
 
 ## Usage
