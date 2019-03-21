@@ -13,7 +13,7 @@ class ListType implements TypeInterface
     private static $isNotAnArrayMessage = 'The given value %s is not an array.';
 
     /**
-     * @var TypeInterface[]
+     * @var TypeInterface
      */
     private $child;
 

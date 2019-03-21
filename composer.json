@@ -15,7 +15,7 @@
     "scripts": {
         "check": ["@analyze", "@tests", "@tests-spec"],
         "tests": "phpunit tests",
-        "analyze": "phpstan analyse --level 0 src",
+        "analyze": "phpstan analyse --level max src",
         "tests-spec": "phpspec run --no-interaction"
     },
     "require-dev": {
@@ -32,5 +32,8 @@
                 "tests"
             ]
         }
-    }
+    },
+  "require": {
+    "ext-json": "*"
+  }
 }
