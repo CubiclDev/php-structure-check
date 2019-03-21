@@ -1,12 +1,12 @@
 <?php
 
-namespace StructureCheck;
+namespace Cubicl\StructureCheck;
 
-use StructureCheck\Type\TypeInterface;
+use Cubicl\StructureCheck\Type\TypeInterface;
 
 /**
  * Class Checker
- * @package StructureCheck
+ * @package Cubicl\StructureCheck
  */
 class Checker implements CheckerInterface
 {

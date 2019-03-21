@@ -1,15 +1,15 @@
 <?php
 
-namespace StructureCheck\Type;
+namespace Cubicl\StructureCheck\Type;
 
 use DateTime;
 use DateTimeZone;
-use StructureCheck\Result;
-use StructureCheck\ResultInterface;
+use Cubicl\StructureCheck\Result;
+use Cubicl\StructureCheck\ResultInterface;
 
 /**
  * Class DatetimeType
- * @package StructureCheck\Type
+ * @package Cubicl\Cubicl\StructureCheck\Type
  */
 class DatetimeType implements TypeInterface
 {

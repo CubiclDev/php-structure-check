@@ -1,11 +1,11 @@
 <?php
 
-namespace spec\StructureCheck;
+namespace spec\Cubicl\StructureCheck;
 
 use PhpSpec\ObjectBehavior;
-use StructureCheck\Checker;
-use StructureCheck\ResultInterface;
-use StructureCheck\Type\TypeInterface;
+use Cubicl\StructureCheck\Checker;
+use Cubicl\StructureCheck\ResultInterface;
+use Cubicl\StructureCheck\Type\TypeInterface;
 
 class CheckerSpec extends ObjectBehavior
 {

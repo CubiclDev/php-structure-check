@@ -1,4 +1,4 @@
 suites:
   structure_check_suite:
-    namespace: StructureCheck
-    psr4_prefix: StructureCheck
+    namespace: Cubicl\StructureCheck
+    psr4_prefix: Cubicl\StructureCheck

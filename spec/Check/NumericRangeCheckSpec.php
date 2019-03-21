@@ -1,12 +1,12 @@
 <?php
 
-namespace spec\StructureCheck\Check;
+namespace spec\Cubicl\StructureCheck\Check;
 
 use Prophecy\Argument;
-use StructureCheck\Check\NumericRangeCheck;
+use Cubicl\StructureCheck\Check\NumericRangeCheck;
 use PhpSpec\ObjectBehavior;
-use StructureCheck\ResultInterface;
-use StructureCheck\Type\TypeInterface;
+use Cubicl\StructureCheck\ResultInterface;
+use Cubicl\StructureCheck\Type\TypeInterface;
 
 class NumericRangeCheckSpec extends ObjectBehavior
 {

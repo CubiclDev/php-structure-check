@@ -1,8 +1,8 @@
 <?php
 
-namespace spec\StructureCheck\Type;
+namespace spec\Cubicl\StructureCheck\Type;
 
-use StructureCheck\Type\AnyType;
+use Cubicl\StructureCheck\Type\AnyType;
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
 

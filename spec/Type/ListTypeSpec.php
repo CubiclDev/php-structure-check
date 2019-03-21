@@ -1,11 +1,11 @@
 <?php
 
-namespace spec\StructureCheck\Type;
+namespace spec\Cubicl\StructureCheck\Type;
 
-use StructureCheck\Type\ListType;
+use Cubicl\StructureCheck\Type\ListType;
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
-use StructureCheck\Type\TypeInterface;
+use Cubicl\StructureCheck\Type\TypeInterface;
 
 class ListTypeSpec extends ObjectBehavior
 {

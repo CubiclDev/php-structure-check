@@ -1,9 +1,9 @@
 <?php
 
-namespace StructureCheck\Type;
+namespace Cubicl\StructureCheck\Type;
 
-use StructureCheck\Result;
-use StructureCheck\ResultInterface;
+use Cubicl\StructureCheck\Result;
+use Cubicl\StructureCheck\ResultInterface;
 
 class EnumType implements TypeInterface
 {

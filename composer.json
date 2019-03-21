@@ -25,10 +25,10 @@
     },
     "autoload": {
         "psr-4": {
-            "StructureCheck\\": [
+            "Cubicl\\StructureCheck\\": [
                 "src"
             ],
-            "StructureCheck\\Test\\": [
+            "Cubicl\\StructureCheck\\Test\\": [
                 "tests"
             ]
         }

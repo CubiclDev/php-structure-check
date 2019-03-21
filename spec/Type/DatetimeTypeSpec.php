@@ -1,8 +1,8 @@
 <?php
 
-namespace spec\StructureCheck\Type;
+namespace spec\Cubicl\StructureCheck\Type;
 
-use StructureCheck\Type\DatetimeType;
+use Cubicl\StructureCheck\Type\DatetimeType;
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
 

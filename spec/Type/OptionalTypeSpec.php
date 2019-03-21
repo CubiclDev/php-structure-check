@@ -1,11 +1,11 @@
 <?php
 
-namespace spec\StructureCheck\Type;
+namespace spec\Cubicl\StructureCheck\Type;
 
-use StructureCheck\Result;
-use StructureCheck\Type\OptionalType;
+use Cubicl\StructureCheck\Result;
+use Cubicl\StructureCheck\Type\OptionalType;
 use PhpSpec\ObjectBehavior;
-use StructureCheck\Type\TypeInterface;
+use Cubicl\StructureCheck\Type\TypeInterface;
 
 class OptionalTypeSpec extends ObjectBehavior
 {

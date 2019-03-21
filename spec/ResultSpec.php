@@ -1,9 +1,9 @@
 <?php
 
-namespace spec\StructureCheck;
+namespace spec\Cubicl\StructureCheck;
 
 use PhpSpec\ObjectBehavior;
-use StructureCheck\Result;
+use Cubicl\StructureCheck\Result;
 
 class ResultSpec extends ObjectBehavior
 {

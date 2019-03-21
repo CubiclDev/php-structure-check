@@ -1,12 +1,12 @@
 <?php
 
-namespace StructureCheck\Type;
+namespace Cubicl\StructureCheck\Type;
 
-use StructureCheck\ResultInterface;
+use Cubicl\StructureCheck\ResultInterface;
 
 /**
  * Class OptionalType
- * @package StructureCheck\Type
+ * @package Cubicl\Cubicl\StructureCheck\Type
  * @author Christian Blank <christian@cubicl.de>
  */
 class OptionalType implements TypeInterface

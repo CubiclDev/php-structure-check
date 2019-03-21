@@ -1,13 +1,13 @@
 <?php
 
-namespace StructureCheck\Type;
+namespace Cubicl\StructureCheck\Type;
 
-use StructureCheck\Result;
-use StructureCheck\ResultInterface;
+use Cubicl\StructureCheck\Result;
+use Cubicl\StructureCheck\ResultInterface;
 
 /**
  * Class StringType
- * @package StructureCheck\Type
+ * @package Cubicl\Cubicl\StructureCheck\Type
  */
 class StringType implements TypeInterface
 {

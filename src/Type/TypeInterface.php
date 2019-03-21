@@ -1,12 +1,12 @@
 <?php
 
-namespace StructureCheck\Type;
+namespace Cubicl\StructureCheck\Type;
 
-use StructureCheck\ResultInterface;
+use Cubicl\StructureCheck\ResultInterface;
 
 /**
  * Interface TypeInterface
- * @package StructureCheck\Type
+ * @package Cubicl\Cubicl\StructureCheck\Type
  */
 interface TypeInterface
 {

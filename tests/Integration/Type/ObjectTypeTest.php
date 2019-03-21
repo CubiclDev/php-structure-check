@@ -1,17 +1,17 @@
 <?php
 
-namespace StructureCheck\Test\Integration\Type;
+namespace Cubicl\StructureCheck\Test\Integration\Type;
 
 use PHPUnit\Framework\TestCase;
-use StructureCheck\Checker;
-use StructureCheck\CheckerInterface;
-use StructureCheck\Type\AnyType;
-use StructureCheck\Type\ObjectType;
-use StructureCheck\Type\OptionalType;
+use Cubicl\StructureCheck\Checker;
+use Cubicl\StructureCheck\CheckerInterface;
+use Cubicl\StructureCheck\Type\AnyType;
+use Cubicl\StructureCheck\Type\ObjectType;
+use Cubicl\StructureCheck\Type\OptionalType;
 
 /**
  * Class ObjectTypeTest
- * @package StructureCheck\Test\Integration\Type
+ * @package Cubicl\StructureCheck\Test\Integration\Type
  * @author Christian Blank <christian@cubicl.de>
  */
 class ObjectTypeTest extends TestCase

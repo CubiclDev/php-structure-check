@@ -1,8 +1,8 @@
 <?php
 
-namespace spec\StructureCheck\Type;
+namespace spec\Cubicl\StructureCheck\Type;
 
-use StructureCheck\Type\FloatType;
+use Cubicl\StructureCheck\Type\FloatType;
 use PhpSpec\ObjectBehavior;
 
 class FloatTypeSpec extends ObjectBehavior

@@ -1,9 +1,9 @@
 <?php
 
-namespace spec\StructureCheck\Type;
+namespace spec\Cubicl\StructureCheck\Type;
 
 use PhpSpec\ObjectBehavior;
-use StructureCheck\Type\RegexType;
+use Cubicl\StructureCheck\Type\RegexType;
 
 class RegexTypeSpec extends ObjectBehavior
 {

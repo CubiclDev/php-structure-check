@@ -1,8 +1,8 @@
 <?php
 
-namespace spec\StructureCheck\Type;
+namespace spec\Cubicl\StructureCheck\Type;
 
-use StructureCheck\Type\NumericType;
+use Cubicl\StructureCheck\Type\NumericType;
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
 

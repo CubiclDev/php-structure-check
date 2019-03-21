@@ -1,12 +1,12 @@
 <?php
 
-namespace spec\StructureCheck\Check;
+namespace spec\Cubicl\StructureCheck\Check;
 
-use StructureCheck\Check\CountCheck;
+use Cubicl\StructureCheck\Check\CountCheck;
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
-use StructureCheck\ResultInterface;
-use StructureCheck\Type\TypeInterface;
+use Cubicl\StructureCheck\ResultInterface;
+use Cubicl\StructureCheck\Type\TypeInterface;
 
 class CountCheckSpec extends ObjectBehavior
 {

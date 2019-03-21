@@ -1,13 +1,13 @@
 <?php
 
-namespace StructureCheck\Check;
+namespace Cubicl\StructureCheck\Check;
 
-use StructureCheck\Result;
-use StructureCheck\Type\TypeInterface;
+use Cubicl\StructureCheck\Result;
+use Cubicl\StructureCheck\Type\TypeInterface;
 
 /**
  * Class NumericRangeCheck
- * @package StructureCheck\Check
+ * @package Cubicl\StructureCheck\Check
  */
 class NumericRangeCheck implements TypeInterface
 {

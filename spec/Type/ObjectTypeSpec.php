@@ -1,11 +1,11 @@
 <?php
 
-namespace spec\StructureCheck\Type;
+namespace spec\Cubicl\StructureCheck\Type;
 
-use StructureCheck\Type\ObjectType;
+use Cubicl\StructureCheck\Type\ObjectType;
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
-use StructureCheck\Type\TypeInterface;
+use Cubicl\StructureCheck\Type\TypeInterface;
 
 class ObjectTypeSpec extends ObjectBehavior
 {

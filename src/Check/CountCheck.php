@@ -1,14 +1,14 @@
 <?php
 
-namespace StructureCheck\Check;
+namespace Cubicl\StructureCheck\Check;
 
 use Countable;
-use StructureCheck\Result;
-use StructureCheck\Type\TypeInterface;
+use Cubicl\StructureCheck\Result;
+use Cubicl\StructureCheck\Type\TypeInterface;
 
 /**
  * Class CountCheck
- * @package StructureCheck\Check
+ * @package Cubicl\StructureCheck\Check
  */
 class CountCheck implements TypeInterface
 {

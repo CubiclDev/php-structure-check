@@ -1,10 +1,10 @@
 <?php
 
-namespace StructureCheck;
+namespace Cubicl\StructureCheck;
 
 /**
  * Class Result
- * @package StructureCheck
+ * @package Cubicl\StructureCheck
  */
 class Result implements ResultInterface
 {

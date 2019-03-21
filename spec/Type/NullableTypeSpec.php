@@ -1,11 +1,11 @@
 <?php
 
-namespace spec\StructureCheck\Type;
+namespace spec\Cubicl\StructureCheck\Type;
 
-use StructureCheck\Result;
-use StructureCheck\Type\NullableType;
+use Cubicl\StructureCheck\Result;
+use Cubicl\StructureCheck\Type\NullableType;
 use PhpSpec\ObjectBehavior;
-use StructureCheck\Type\TypeInterface;
+use Cubicl\StructureCheck\Type\TypeInterface;
 
 class NullableTypeSpec extends ObjectBehavior
 {

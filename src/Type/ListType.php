@@ -1,12 +1,12 @@
 <?php
 
-namespace StructureCheck\Type;
+namespace Cubicl\StructureCheck\Type;
 
-use StructureCheck\Result;
+use Cubicl\StructureCheck\Result;
 
 /**
  * Class ListType
- * @package StructureCheck\Type
+ * @package Cubicl\Cubicl\StructureCheck\Type
  */
 class ListType implements TypeInterface
 {

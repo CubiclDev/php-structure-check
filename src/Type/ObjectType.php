@@ -1,8 +1,8 @@
 <?php
 
-namespace StructureCheck\Type;
+namespace Cubicl\StructureCheck\Type;
 
-use StructureCheck\Result;
+use Cubicl\StructureCheck\Result;
 
 class ObjectType implements TypeInterface
 {

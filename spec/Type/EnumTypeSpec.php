@@ -1,8 +1,8 @@
 <?php
 
-namespace spec\StructureCheck\Type;
+namespace spec\Cubicl\StructureCheck\Type;
 
-use StructureCheck\Type\EnumType;
+use Cubicl\StructureCheck\Type\EnumType;
 use PhpSpec\ObjectBehavior;
 
 class EnumTypeSpec extends ObjectBehavior

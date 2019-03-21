@@ -1,9 +1,9 @@
 <?php
 
-namespace spec\StructureCheck\Type;
+namespace spec\Cubicl\StructureCheck\Type;
 
 use PhpSpec\ObjectBehavior;
-use StructureCheck\Type\BoolType;
+use Cubicl\StructureCheck\Type\BoolType;
 
 class BoolTypeSpec extends ObjectBehavior
 {
