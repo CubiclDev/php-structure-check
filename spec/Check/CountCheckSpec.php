@@ -27,20 +27,20 @@ class CountCheckSpec extends ObjectBehavior
     function it_returns_a_result_on_invalid_child_check(TypeInterface $child, ResultInterface $result)
     {
         $result->isValid()->willReturn(false);
-        $child->check(Argument::any())->willReturn($result);
+        $child->check('', Argument::any())->willReturn($result);
 
         $this->beConstructedWith($child, 1);
 
-        $this->check([])->shouldHaveType(ResultInterface::class);
+        $this->check('', [])->shouldHaveType(ResultInterface::class);
     }
 
     function it_returns_a_result_on_check(TypeInterface $child, ResultInterface $result)
     {
         $result->isValid()->willReturn(true);
-        $child->check(Argument::any())->willReturn($result);
+        $child->check('', Argument::any())->willReturn($result);
 
         $this->beConstructedWith($child, 1);
 
-        $this->check([3])->shouldHaveType(ResultInterface::class);
+        $this->check('', [3])->shouldHaveType(ResultInterface::class);
     }
 }

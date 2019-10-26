@@ -2,15 +2,12 @@
 
 namespace Cubicl\StructureCheck\Type;
 
+use Cubicl\StructureCheck\Error;
 use DateTime;
 use DateTimeZone;
 use Cubicl\StructureCheck\Result;
 use Cubicl\StructureCheck\ResultInterface;
 
-/**
- * Class DatetimeType
- * @package Cubicl\Cubicl\StructureCheck\Type
- */
 class DatetimeType implements TypeInterface
 {
     /**
@@ -28,42 +25,26 @@ class DatetimeType implements TypeInterface
      */
     private $datetimeZone;
 
-    /**
-     * DatetimeType constructor.
-     *
-     * @param string $format
-     * @param string $datetimeZone
-     */
-    public function __construct($format, $datetimeZone)
+    public function __construct(string $format, string $datetimeZone)
     {
         $this->datetimeFormat = $format;
         $this->datetimeZone = $datetimeZone;
     }
 
-    /**
-     * @param mixed $value
-     *
-     * @return ResultInterface
-     */
-    public function check($value)
+    public function check(string $key, $value): ResultInterface
     {
         $checkResult = is_string($value) && $this->isValidDatetime($value);
 
-        return new Result(
-            $checkResult,
-            !$checkResult ? [sprintf(self::$errorMessage, json_encode($value))] : []
-        );
+        return $checkResult
+            ? Result::valid()
+            : Result::invalid([new Error($key, sprintf(self::$errorMessage, json_encode($value)))]);
     }
 
-    /**
-     * @param string $value
-     *
-     * @return bool
-     */
-    private function isValidDatetime($value) {
+    private function isValidDatetime(string $value): bool
+    {
         $date = DateTime::createFromFormat($this->datetimeFormat, $value, new DateTimeZone($this->datetimeZone));
-        $errors = DateTime::getLastErrors()["warning_count"];
+        $errors = DateTime::getLastErrors();
 
-        return $date && $errors["warning_count"] == 0 && $errors["error_count"] == 0;
+        return $date && $errors['warning_count'] === 0 && $errors['error_count'] === 0;
     }
 }

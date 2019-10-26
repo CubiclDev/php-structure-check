@@ -2,13 +2,10 @@
 
 namespace Cubicl\StructureCheck\Type;
 
+use Cubicl\StructureCheck\Error;
 use Cubicl\StructureCheck\Result;
 use Cubicl\StructureCheck\ResultInterface;
 
-/**
- * Class RegexType
- * @package Cubicl\Cubicl\StructureCheck\Type
- */
 class RegexType implements TypeInterface
 {
     /**
@@ -21,28 +18,19 @@ class RegexType implements TypeInterface
      */
     private $regex;
 
-    /**
-     * RegexType constructor.
-     *
-     * @param string $regex
-     */
-    public function __construct($regex)
+    public function __construct(string $regex)
     {
         $this->regex = $regex;
     }
 
-    /**
-     * @param mixed $value
-     *
-     * @return ResultInterface
-     */
-    public function check($value)
+    public function check(string $key, $value): ResultInterface
     {
         $checkResult = is_string($value) && preg_match($this->regex, $value) === 1;
 
-        return new Result(
-            $checkResult,
-            !$checkResult ? [sprintf(self::$errorMessage, json_encode($value), $this->regex)] : []
-        );
+        return $checkResult
+            ? Result::valid()
+            : Result::invalid([
+                new Error($key, sprintf(self::$errorMessage, json_encode($value), json_encode($this->regex)))
+            ]);
     }
 }

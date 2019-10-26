@@ -17,6 +17,6 @@ class ExactValueTypeSpec extends ObjectBehavior
     function it_is_valid_for_null_if_null_is_the_value()
     {
         $this->beConstructedWith(null);
-        $this->check(null)->isValid()->shouldBe(true);
+        $this->check('', null)->isValid()->shouldBe(true);
     }
 }

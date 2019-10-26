@@ -4,19 +4,13 @@ namespace Cubicl\StructureCheck;
 
 use Cubicl\StructureCheck\Type\TypeInterface;
 
-/**
- * Class Checker
- * @package Cubicl\StructureCheck
- */
 class Checker implements CheckerInterface
 {
-
     /**
      * @inheritdoc
      */
-    public function fulfills($element, TypeInterface $requirement)
+    public function fulfills($element, TypeInterface $requirement): ResultInterface
     {
-        return $requirement->check($element);
+        return $requirement->check('', $element);
     }
-
 }

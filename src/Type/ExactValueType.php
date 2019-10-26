@@ -2,12 +2,12 @@
 
 namespace Cubicl\StructureCheck\Type;
 
+use Cubicl\StructureCheck\Error;
 use Cubicl\StructureCheck\Result;
 use Cubicl\StructureCheck\ResultInterface;
 
 class ExactValueType implements TypeInterface
 {
-
     /**
      * @var string
      */
@@ -26,18 +26,14 @@ class ExactValueType implements TypeInterface
         $this->value = $value;
     }
 
-    /**
-     * @param mixed $value
-     *
-     * @return ResultInterface
-     */
-    public function check($value)
+    public function check(string $key, $value): ResultInterface
     {
         $checkResult = $this->value === $value;
 
-        return new Result(
-            $checkResult,
-            !$checkResult ? [sprintf(self::$errorMessage, json_encode($value), $this->value)] : []
-        );
+        return $checkResult
+            ? Result::valid()
+            : Result::invalid([
+                new Error($key, sprintf(self::$errorMessage, json_encode($value), json_encode($this->value)))
+            ]);
     }
 }
