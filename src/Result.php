@@ -2,10 +2,6 @@
 
 namespace Cubicl\StructureCheck;
 
-/**
- * Class Result
- * @package Cubicl\StructureCheck
- */
 class Result implements ResultInterface
 {
 
@@ -15,7 +11,7 @@ class Result implements ResultInterface
     private $valid;
 
     /**
-     * @var array
+     * @var ErrorInterface[]
      */
     private $errors;
 
@@ -23,18 +19,33 @@ class Result implements ResultInterface
      * Result constructor.
      *
      * @param bool $valid
-     * @param array $errors
+     * @param ErrorInterface[] $errors
      */
-    public function __construct($valid, array $errors = [])
+    public function __construct($valid, array $errors)
     {
         $this->valid = $valid;
         $this->errors = $errors;
     }
 
+    public static function valid(): ResultInterface
+    {
+        return new self(true, []);
+    }
+
+    /**
+     * @param ErrorInterface[] $errors
+     *
+     * @return ResultInterface
+     */
+    public static function invalid(array $errors): ResultInterface
+    {
+        return new self(false, $errors);
+    }
+
     /**
      * @inheritdoc
      */
-    public function isValid()
+    public function isValid(): bool
     {
         return $this->valid;
     }
@@ -42,7 +53,7 @@ class Result implements ResultInterface
     /**
      * @inheritdoc
      */
-    public function getErrors()
+    public function getErrors(): array
     {
         return $this->errors;
     }

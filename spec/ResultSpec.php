@@ -28,7 +28,7 @@ class ResultSpec extends ObjectBehavior
 
     function it_will_return_an_empty_array_if_no_error_list_is_given()
     {
-        $this->beConstructedWith(true);
+        $this->beConstructedWith(true, []);
         $this->getErrors()->shouldHaveCount(0);
     }
 }

@@ -2,13 +2,11 @@
 
 namespace Cubicl\StructureCheck\Check;
 
+use Cubicl\StructureCheck\Error;
 use Cubicl\StructureCheck\Result;
+use Cubicl\StructureCheck\ResultInterface;
 use Cubicl\StructureCheck\Type\TypeInterface;
 
-/**
- * Class NumericRangeCheck
- * @package Cubicl\StructureCheck\Check
- */
 class NumericRangeCheck implements TypeInterface
 {
     /**
@@ -36,43 +34,33 @@ class NumericRangeCheck implements TypeInterface
      */
     private $upperBound;
 
-    /**
-     * @param TypeInterface $child
-     * @param int $upperBound
-     * @param int $lowerBound
-     */
-    public function __construct(TypeInterface $child, $upperBound, $lowerBound)
+    public function __construct(TypeInterface $child, int $upperBound, int $lowerBound)
     {
         $this->child = $child;
         $this->upperBound = $upperBound;
         $this->lowerBound = $lowerBound;
     }
 
-    /**
-     * @inheritdoc
-     */
-    public function check($value)
+    public function check(string $key, $value): ResultInterface
     {
-        $result = $this->child->check($value);
+        $result = $this->child->check($key, $value);
 
         if (!$result->isValid()) {
            return $result;
         }
 
         if ($this->lowerBound > $value) {
-            return new Result(
-                false,
-                [sprintf(self::$lowerBoundErrorMessage, $this->lowerBound, $value)]
-            );
+            return Result::invalid([
+                new Error($key, sprintf(self::$lowerBoundErrorMessage, $this->lowerBound, $value))
+            ]);
         }
 
         if ($this->upperBound < $value) {
-            return new Result(
-                false,
-                [sprintf(self::$upperBoundErrorMessage, $this->upperBound, $value)]
-            );
+            return Result::invalid([
+                new Error($key, sprintf(self::$upperBoundErrorMessage, $this->lowerBound, $value))
+            ]);
         }
 
-        return new Result(true);
+        return Result::valid();
     }
 }

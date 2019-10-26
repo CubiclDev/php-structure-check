@@ -24,7 +24,7 @@ class ObjectTypeTest extends TestCase
     /**
      *
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         parent::setUp();
         $this->checker = new Checker();
@@ -33,13 +33,13 @@ class ObjectTypeTest extends TestCase
     /**
      * @test
      */
-    public function itShouldHandleAbsenceOfOptionalDeclaredType()
+    public function itShouldHandleAbsenceOfOptionalDeclaredType(): void
     {
         $structure = new ObjectType([
             'opt' => new OptionalType(new AnyType())
         ]);
 
-        $actual = $structure->check([]);
+        $actual = $structure->check('', []);
 
         $this->assertSame(true, $actual->isValid());
     }

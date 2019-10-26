@@ -17,7 +17,7 @@ class OptionalTypeSpec extends ObjectBehavior
 
     function it_should_return_the_value_from_the_child(TypeInterface $childType) {
         $this->beConstructedWith($childType);
-        $childType->check(false)->willReturn(new Result(false, []));
-        $this->check(false)->isValid()->shouldBe(false);
+        $childType->check('', false)->willReturn(new Result(false, []));
+        $this->check('', false)->isValid()->shouldBe(false);
     }
 }

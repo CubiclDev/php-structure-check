@@ -3,6 +3,7 @@
 namespace Cubicl\StructureCheck\Type;
 
 use Cubicl\StructureCheck\Result;
+use Cubicl\StructureCheck\ResultInterface;
 
 /**
  * Class AnyType
@@ -13,8 +14,8 @@ class AnyType implements TypeInterface
     /**
      * @inheritdoc
      */
-    public function check($value)
+    public function check(string $key, $value): ResultInterface
     {
-        return new Result(true);
+        return Result::valid();
     }
 }

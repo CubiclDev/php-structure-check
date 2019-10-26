@@ -10,15 +10,13 @@ interface ResultInterface
 {
     /**
      * Returns TRUE if the check was successful.
-     *
-     * @return bool
      */
-    public function isValid();
+    public function isValid(): bool;
 
     /**
      * Returns a list of errors. If no error occurred, it will return an empty array.
      *
-     * @return array
+     * @return ErrorInterface[]
      */
-    public function getErrors();
+    public function getErrors(): array;
 }

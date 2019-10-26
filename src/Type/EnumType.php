@@ -2,20 +2,21 @@
 
 namespace Cubicl\StructureCheck\Type;
 
+use Cubicl\StructureCheck\Error;
 use Cubicl\StructureCheck\Result;
 use Cubicl\StructureCheck\ResultInterface;
 
 class EnumType implements TypeInterface
 {
     /**
-     * @var array
-     */
-    private $values = [];
-
-    /**
      * @var string
      */
     private static $errorMessage = 'The value %s is not in the allowed values (%s).';
+
+    /**
+     * @var array
+     */
+    private $values;
 
     /**
      * EnumType constructor.
@@ -27,18 +28,13 @@ class EnumType implements TypeInterface
         $this->values = $values;
     }
 
-    /**
-     * @param mixed $value
-     *
-     * @return ResultInterface
-     */
-    public function check($value)
+    public function check(string $key, $value): ResultInterface
     {
         $checkResult = in_array($value, $this->values, true);
-
-        return new Result(
-            $checkResult,
-            !$checkResult ? [sprintf(self::$errorMessage, json_encode($value), implode(',', $this->values))] : []
-        );
+        return $checkResult
+            ? Result::valid()
+            : Result::invalid([
+                new Error($key, sprintf(self::$errorMessage, json_encode($value), implode(',', $this->values)))
+            ]);
     }
 }
