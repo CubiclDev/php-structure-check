@@ -7,11 +7,7 @@ use Cubicl\StructureCheck\ResultInterface;
 
 class ExactValueType implements TypeInterface
 {
-
-    /**
-     * @var string
-     */
-    private static $errorMessage = 'The value %s is not the same value as %s.';
+    private static string $errorMessage = 'The value %s is not the same value as %s.';
 
     /** @var mixed */
     private $value;
@@ -26,12 +22,7 @@ class ExactValueType implements TypeInterface
         $this->value = $value;
     }
 
-    /**
-     * @param mixed $value
-     *
-     * @return ResultInterface
-     */
-    public function check($value)
+    public function check($value): ResultInterface
     {
         $checkResult = $this->value === $value;
 

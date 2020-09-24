@@ -11,14 +11,9 @@ use Cubicl\StructureCheck\ResultInterface;
  */
 class BoolType implements TypeInterface
 {
-    private static $errorMessage = 'The value %s is not a boolean.';
+    private static string $errorMessage = 'The value %s is not a boolean.';
 
-    /**
-     * @param mixed $value
-     *
-     * @return ResultInterface
-     */
-    public function check($value)
+    public function check($value): ResultInterface
     {
         $checkResult = is_bool($value);
 

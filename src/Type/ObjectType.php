@@ -3,15 +3,14 @@
 namespace Cubicl\StructureCheck\Type;
 
 use Cubicl\StructureCheck\Result;
+use Cubicl\StructureCheck\ResultInterface;
 
 class ObjectType implements TypeInterface
 {
-    private static $missingKeyErrorMessage = 'The key "%s" does not exists';
+    private static string $missingKeyErrorMessage = 'The key "%s" does not exists';
 
-    /**
-     * @var TypeInterface[]
-     */
-    private $children;
+    /** @var TypeInterface[] */
+    private array $children;
 
     /**
      * ObjectType constructor.
@@ -23,10 +22,7 @@ class ObjectType implements TypeInterface
         $this->children = $children;
     }
 
-    /**
-     * @inheritdoc
-     */
-    public function check($value)
+    public function check($value): ResultInterface
     {
         $errors = [];
         $valid = true;

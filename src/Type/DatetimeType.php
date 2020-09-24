@@ -6,35 +6,17 @@ use DateTime;
 use DateTimeZone;
 use Cubicl\StructureCheck\Result;
 use Cubicl\StructureCheck\ResultInterface;
+use JsonException;
 
-/**
- * Class DatetimeType
- * @package Cubicl\Cubicl\StructureCheck\Type
- */
 class DatetimeType implements TypeInterface
 {
-    /**
-     * @var string
-     */
-    private static $errorMessage = 'The value %s is not a valid datetime.';
+    private static string $errorMessage = 'The value %s is not a valid datetime.';
 
-    /**
-     * @var string
-     */
-    private $datetimeFormat;
+    private string $datetimeFormat;
 
-    /**
-     * @var string
-     */
-    private $datetimeZone;
+    private string $datetimeZone;
 
-    /**
-     * DatetimeType constructor.
-     *
-     * @param string $format
-     * @param string $datetimeZone
-     */
-    public function __construct($format, $datetimeZone)
+    public function __construct(string $format, string $datetimeZone)
     {
         $this->datetimeFormat = $format;
         $this->datetimeZone = $datetimeZone;
@@ -44,26 +26,23 @@ class DatetimeType implements TypeInterface
      * @param mixed $value
      *
      * @return ResultInterface
+     * @throws JsonException
      */
-    public function check($value)
+    public function check($value): ResultInterface
     {
         $checkResult = is_string($value) && $this->isValidDatetime($value);
 
         return new Result(
             $checkResult,
-            !$checkResult ? [sprintf(self::$errorMessage, json_encode($value))] : []
+            !$checkResult ? [sprintf(self::$errorMessage, json_encode($value, JSON_THROW_ON_ERROR))] : []
         );
     }
 
-    /**
-     * @param string $value
-     *
-     * @return bool
-     */
-    private function isValidDatetime($value) {
+    private function isValidDatetime(string $value): bool
+    {
         $date = DateTime::createFromFormat($this->datetimeFormat, $value, new DateTimeZone($this->datetimeZone));
-        $errors = DateTime::getLastErrors()["warning_count"];
+        $errors = DateTime::getLastErrors();
 
-        return $date && $errors["warning_count"] == 0 && $errors["error_count"] == 0;
+        return $date && $errors["warning_count"] === 0 && $errors["error_count"] === 0;
     }
 }

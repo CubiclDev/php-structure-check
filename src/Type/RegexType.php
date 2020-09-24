@@ -5,38 +5,18 @@ namespace Cubicl\StructureCheck\Type;
 use Cubicl\StructureCheck\Result;
 use Cubicl\StructureCheck\ResultInterface;
 
-/**
- * Class RegexType
- * @package Cubicl\Cubicl\StructureCheck\Type
- */
 class RegexType implements TypeInterface
 {
-    /**
-     * @var string
-     */
-    private static $errorMessage = 'The value %s does not match the regex %s';
+    private static string $errorMessage = 'The value %s does not match the regex %s';
 
-    /**
-     * @var string
-     */
-    private $regex;
+    private string $regex;
 
-    /**
-     * RegexType constructor.
-     *
-     * @param string $regex
-     */
-    public function __construct($regex)
+    public function __construct(string $regex)
     {
         $this->regex = $regex;
     }
 
-    /**
-     * @param mixed $value
-     *
-     * @return ResultInterface
-     */
-    public function check($value)
+    public function check($value): ResultInterface
     {
         $checkResult = is_string($value) && preg_match($this->regex, $value) === 1;
 

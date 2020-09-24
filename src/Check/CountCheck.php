@@ -4,6 +4,7 @@ namespace Cubicl\StructureCheck\Check;
 
 use Countable;
 use Cubicl\StructureCheck\Result;
+use Cubicl\StructureCheck\ResultInterface;
 use Cubicl\StructureCheck\Type\TypeInterface;
 
 /**
@@ -12,42 +13,21 @@ use Cubicl\StructureCheck\Type\TypeInterface;
  */
 class CountCheck implements TypeInterface
 {
-    /**
-     * @var string
-     */
-    private static $countErrorMessage = 'The given countable %s has not the expected count %d.';
+    private static string $countErrorMessage = 'The given countable %s has not the expected count %d.';
 
-    /**
-     * @var string
-     */
-    private static $countableErrorMessage = 'The given value %s is not a countable';
+    private static string $countableErrorMessage = 'The given value %s is not a countable';
 
-    /**
-     * @var TypeInterface
-     */
-    private $child;
+    private TypeInterface $child;
 
-    /**
-     * @var int
-     */
-    private $count;
+    private int $count;
 
-    /**
-     * CountCheck constructor.
-     *
-     * @param TypeInterface $child
-     * @param int $count
-     */
-    public function __construct(TypeInterface $child, $count)
+    public function __construct(TypeInterface $child, int $count)
     {
         $this->child = $child;
         $this->count = $count;
     }
 
-    /**
-     * @inheritdoc
-     */
-    public function check($value)
+    public function check($value): ResultInterface
     {
         $result = $this->child->check($value);
 

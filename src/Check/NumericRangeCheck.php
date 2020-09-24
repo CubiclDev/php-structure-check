@@ -3,55 +3,29 @@
 namespace Cubicl\StructureCheck\Check;
 
 use Cubicl\StructureCheck\Result;
+use Cubicl\StructureCheck\ResultInterface;
 use Cubicl\StructureCheck\Type\TypeInterface;
 
-/**
- * Class NumericRangeCheck
- * @package Cubicl\StructureCheck\Check
- */
 class NumericRangeCheck implements TypeInterface
 {
-    /**
-     * @var string
-     */
-    private static $lowerBoundErrorMessage = 'The given lower bound %f is greater than the given value %f.';
+    private static string $lowerBoundErrorMessage = 'The given lower bound %f is greater than the given value %f.';
 
-    /**
-     * @var string
-     */
-    private static $upperBoundErrorMessage = 'The given upper bound %f is smaller than the given value %f.';
+    private static string $upperBoundErrorMessage = 'The given upper bound %f is smaller than the given value %f.';
 
-    /**
-     * @var TypeInterface
-     */
-    private $child;
+    private TypeInterface $child;
 
-    /**
-     * @var int
-     */
-    private $lowerBound;
+    private int $lowerBound;
 
-    /**
-     * @var int
-     */
-    private $upperBound;
+    private int $upperBound;
 
-    /**
-     * @param TypeInterface $child
-     * @param int $upperBound
-     * @param int $lowerBound
-     */
-    public function __construct(TypeInterface $child, $upperBound, $lowerBound)
+    public function __construct(TypeInterface $child, int $upperBound, int $lowerBound)
     {
         $this->child = $child;
         $this->upperBound = $upperBound;
         $this->lowerBound = $lowerBound;
     }
 
-    /**
-     * @inheritdoc
-     */
-    public function check($value)
+    public function check($value): ResultInterface
     {
         $result = $this->child->check($value);
 

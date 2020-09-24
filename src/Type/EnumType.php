@@ -7,32 +7,16 @@ use Cubicl\StructureCheck\ResultInterface;
 
 class EnumType implements TypeInterface
 {
-    /**
-     * @var array
-     */
-    private $values = [];
+    private array $values = [];
 
-    /**
-     * @var string
-     */
-    private static $errorMessage = 'The value %s is not in the allowed values (%s).';
+    private static string $errorMessage = 'The value %s is not in the allowed values (%s).';
 
-    /**
-     * EnumType constructor.
-     *
-     * @param array $values
-     */
     public function __construct(array $values)
     {
         $this->values = $values;
     }
 
-    /**
-     * @param mixed $value
-     *
-     * @return ResultInterface
-     */
-    public function check($value)
+    public function check($value): ResultInterface
     {
         $checkResult = in_array($value, $this->values, true);
 

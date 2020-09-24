@@ -5,20 +5,11 @@ namespace Cubicl\StructureCheck\Type;
 use Cubicl\StructureCheck\Result;
 use Cubicl\StructureCheck\ResultInterface;
 
-/**
- * Class StringType
- * @package Cubicl\Cubicl\StructureCheck\Type
- */
 class StringType implements TypeInterface
 {
-    private static $errorMessage = 'The value %s is not a string.';
+    private static string $errorMessage = 'The value %s is not a string.';
 
-    /**
-     * @param mixed $value
-     *
-     * @return ResultInterface
-     */
-    public function check($value)
+    public function check($value): ResultInterface
     {
         $checkResult = is_string($value);
 

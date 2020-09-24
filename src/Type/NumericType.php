@@ -7,14 +7,9 @@ use Cubicl\StructureCheck\ResultInterface;
 
 class NumericType implements TypeInterface
 {
-    private static $errorMessage = 'The value %s is not a numeric value.';
+    private static string $errorMessage = 'The value %s is not a numeric value.';
 
-    /**
-     * @param mixed $value
-     *
-     * @return ResultInterface
-     */
-    public function check($value)
+    public function check($value): ResultInterface
     {
         $checkResult = is_numeric($value);
 

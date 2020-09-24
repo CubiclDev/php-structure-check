@@ -3,15 +3,13 @@
 namespace Cubicl\StructureCheck\Type;
 
 use Cubicl\StructureCheck\Result;
+use Cubicl\StructureCheck\ResultInterface;
 
 class FloatType implements TypeInterface
 {
-    private static $errorMessage = 'The value %s is not a float.';
+    private static string $errorMessage = 'The value %s is not a float.';
 
-    /**
-     * @inheritdoc
-     */
-    public function check($value)
+    public function check($value): ResultInterface
     {
         $checkResult = is_float($value);
 

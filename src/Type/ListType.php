@@ -3,34 +3,20 @@
 namespace Cubicl\StructureCheck\Type;
 
 use Cubicl\StructureCheck\Result;
+use Cubicl\StructureCheck\ResultInterface;
 
-/**
- * Class ListType
- * @package Cubicl\Cubicl\StructureCheck\Type
- */
 class ListType implements TypeInterface
 {
-    private static $isNotAnArrayMessage = 'The given value %s is not an array.';
+    private static string $isNotAnArrayMessage = 'The given value %s is not an array.';
 
-    /**
-     * @var TypeInterface
-     */
-    private $child;
+    private TypeInterface $child;
 
-    /**
-     * ListType constructor.
-     *
-     * @param TypeInterface $child
-     */
     public function __construct(TypeInterface $child)
     {
         $this->child = $child;
     }
 
-    /**
-     * @inheritdoc
-     */
-    public function check($value)
+    public function check($value): ResultInterface
     {
         if (!is_array($value)) {
             return new Result(

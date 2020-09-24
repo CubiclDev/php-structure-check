@@ -4,10 +4,6 @@ namespace Cubicl\StructureCheck\Type;
 
 use Cubicl\StructureCheck\ResultInterface;
 
-/**
- * Interface TypeInterface
- * @package Cubicl\Cubicl\StructureCheck\Type
- */
 interface TypeInterface
 {
     /**
@@ -15,5 +11,5 @@ interface TypeInterface
      *
      * @return ResultInterface
      */
-    public function check($value);
+    public function check($value): ResultInterface;
 }
