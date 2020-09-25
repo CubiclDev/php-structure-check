@@ -6,21 +6,30 @@ use Cubicl\StructureCheck\Error;
 use Cubicl\StructureCheck\Result;
 use Cubicl\StructureCheck\ResultInterface;
 
+/**
+ * @template T
+ */
 class EnumType implements TypeInterface
 {
     private static string $errorMessage = 'The value %s is not in the allowed values (%s).';
 
-    /** @var mixed[] */
+    /** @var array<T> */
     private array $values;
 
     /**
-     * @param mixed[] $values
+     * @param array<T> $values
      */
     public function __construct(array $values)
     {
         $this->values = $values;
     }
 
+    /**
+     * @param string $key
+     * @param T $value
+     *
+     * @return ResultInterface
+     */
     public function check(string $key, $value): ResultInterface
     {
         $checkResult = in_array($value, $this->values, true);
