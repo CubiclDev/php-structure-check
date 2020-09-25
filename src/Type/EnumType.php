@@ -10,8 +10,12 @@ class EnumType implements TypeInterface
 {
     private static string $errorMessage = 'The value %s is not in the allowed values (%s).';
 
+    /** @var mixed[] */
     private array $values;
 
+    /**
+     * @param mixed[] $values
+     */
     public function __construct(array $values)
     {
         $this->values = $values;
