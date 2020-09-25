@@ -2,6 +2,7 @@
 
 namespace Cubicl\StructureCheck\Type;
 
+use Cubicl\StructureCheck\Error;
 use Cubicl\StructureCheck\Result;
 use Cubicl\StructureCheck\ResultInterface;
 
@@ -16,25 +17,27 @@ class ListType implements TypeInterface
         $this->child = $child;
     }
 
-    public function check($value): ResultInterface
+    public function check(string $key, $value): ResultInterface
     {
         if (!is_array($value)) {
-            return new Result(
-                false,
-                [sprintf(self::$isNotAnArrayMessage, json_encode($value))]
+            return Result::invalid(
+                [new Error($key, sprintf(self::$isNotAnArrayMessage, json_encode($value)))]
             );
         }
 
         $errors = [];
         $valid = true;
 
-        foreach ($value as $item) {
-            $result = $this->child->check($item);
+        foreach ($value as $idx => $item) {
+            $result = $this->child->check(sprintf('%s.%d', $key, $idx), $item);
 
             $valid = $valid && $result->isValid();
             $errors += $result->getErrors();
         }
 
-        return new Result($valid, $errors);
+        return $valid
+            ? Result::valid()
+            : Result::invalid($errors);
+
     }
 }

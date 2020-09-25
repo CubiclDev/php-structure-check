@@ -2,6 +2,7 @@
 
 namespace Cubicl\StructureCheck\Type;
 
+use Cubicl\StructureCheck\Error;
 use DateTime;
 use DateTimeZone;
 use Cubicl\StructureCheck\Result;
@@ -22,20 +23,13 @@ class DatetimeType implements TypeInterface
         $this->datetimeZone = $datetimeZone;
     }
 
-    /**
-     * @param mixed $value
-     *
-     * @return ResultInterface
-     * @throws JsonException
-     */
-    public function check($value): ResultInterface
+    public function check(string $key, $value): ResultInterface
     {
         $checkResult = is_string($value) && $this->isValidDatetime($value);
 
-        return new Result(
-            $checkResult,
-            !$checkResult ? [sprintf(self::$errorMessage, json_encode($value, JSON_THROW_ON_ERROR))] : []
-        );
+        return $checkResult
+            ? Result::valid()
+            : Result::invalid([new Error($key, sprintf(self::$errorMessage, json_encode($value)))]);
     }
 
     private function isValidDatetime(string $value): bool
@@ -43,6 +37,6 @@ class DatetimeType implements TypeInterface
         $date = DateTime::createFromFormat($this->datetimeFormat, $value, new DateTimeZone($this->datetimeZone));
         $errors = DateTime::getLastErrors();
 
-        return $date && $errors["warning_count"] === 0 && $errors["error_count"] === 0;
+        return $date && $errors['warning_count'] === 0 && $errors['error_count'] === 0;
     }
 }

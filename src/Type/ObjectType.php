@@ -2,6 +2,7 @@
 
 namespace Cubicl\StructureCheck\Type;
 
+use Cubicl\StructureCheck\Error;
 use Cubicl\StructureCheck\Result;
 use Cubicl\StructureCheck\ResultInterface;
 
@@ -13,8 +14,6 @@ class ObjectType implements TypeInterface
     private array $children;
 
     /**
-     * ObjectType constructor.
-     *
      * @param TypeInterface[] $children
      */
     public function __construct(array $children)
@@ -22,22 +21,23 @@ class ObjectType implements TypeInterface
         $this->children = $children;
     }
 
-    public function check($value): ResultInterface
+    public function check(string $key, $value): ResultInterface
     {
         $errors = [];
         $valid = true;
 
-        foreach ($this->children as $key => $child) {
-            if (!array_key_exists($key, $value)) {
+        foreach ($this->children as $objectProperty => $child) {
+            $fullKey = sprintf('%s.%s', $key, $objectProperty);
+            if (!array_key_exists($objectProperty, $value)) {
                 if (!$child instanceof OptionalType) {
                     $valid = false;
-                    $errors[] = sprintf(self::$missingKeyErrorMessage, $key);
+                    $errors[] = new Error($fullKey, sprintf(self::$missingKeyErrorMessage, $objectProperty));
                 }
 
                 continue;
             }
 
-            $result = $child->check($value[$key]);
+            $result = $child->check($fullKey, $value[$objectProperty]);
             $valid = $valid && $result->isValid();
             $errors += $result->getErrors();
         }

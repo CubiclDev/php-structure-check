@@ -2,21 +2,37 @@
 
 namespace Cubicl\StructureCheck\Check;
 
+use Cubicl\StructureCheck\Error;
 use Cubicl\StructureCheck\Result;
 use Cubicl\StructureCheck\ResultInterface;
 use Cubicl\StructureCheck\Type\TypeInterface;
 
 class NumericRangeCheck implements TypeInterface
 {
-    private static string $lowerBoundErrorMessage = 'The given lower bound %f is greater than the given value %f.';
+    /**
+     * @var string
+     */
+    private static $lowerBoundErrorMessage = 'The given lower bound %f is greater than the given value %f.';
 
-    private static string $upperBoundErrorMessage = 'The given upper bound %f is smaller than the given value %f.';
+    /**
+     * @var string
+     */
+    private static $upperBoundErrorMessage = 'The given upper bound %f is smaller than the given value %f.';
 
-    private TypeInterface $child;
+    /**
+     * @var TypeInterface
+     */
+    private $child;
 
-    private int $lowerBound;
+    /**
+     * @var int
+     */
+    private $lowerBound;
 
-    private int $upperBound;
+    /**
+     * @var int
+     */
+    private $upperBound;
 
     public function __construct(TypeInterface $child, int $upperBound, int $lowerBound)
     {
@@ -25,28 +41,26 @@ class NumericRangeCheck implements TypeInterface
         $this->lowerBound = $lowerBound;
     }
 
-    public function check($value): ResultInterface
+    public function check(string $key, $value): ResultInterface
     {
-        $result = $this->child->check($value);
+        $result = $this->child->check($key, $value);
 
         if (!$result->isValid()) {
            return $result;
         }
 
         if ($this->lowerBound > $value) {
-            return new Result(
-                false,
-                [sprintf(self::$lowerBoundErrorMessage, $this->lowerBound, $value)]
-            );
+            return Result::invalid([
+                new Error($key, sprintf(self::$lowerBoundErrorMessage, $this->lowerBound, $value))
+            ]);
         }
 
         if ($this->upperBound < $value) {
-            return new Result(
-                false,
-                [sprintf(self::$upperBoundErrorMessage, $this->upperBound, $value)]
-            );
+            return Result::invalid([
+                new Error($key, sprintf(self::$upperBoundErrorMessage, $this->lowerBound, $value))
+            ]);
         }
 
-        return new Result(true);
+        return Result::valid();
     }
 }

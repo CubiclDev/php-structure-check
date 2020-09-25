@@ -19,24 +19,24 @@ class RegexTypeSpec extends ObjectBehavior
     {
         $this->beConstructedWith('/^def/');
 
-        $this->check('definitive')->isValid()->shouldBe(true);
+        $this->check('', 'definitive')->isValid()->shouldBe(true);
     }
 
     function it_should_return_invalid_for_not_matching_strings(): void
     {
         $this->beConstructedWith('/^def/');
 
-        $this->check('developers')->isValid()->shouldBe(false);
+        $this->check('', 'developers')->isValid()->shouldBe(false);
     }
 
     function it_should_return_invalid_for_others(): void
     {
         $this->beConstructedWith('/^def/');
 
-        $this->check(null)->isValid()->shouldBe(false);
-        $this->check(12.3)->isValid()->shouldBe(false);
-        $this->check([])->isValid()->shouldBe(false);
-        $this->check(-1)->isValid()->shouldBe(false);
-        $this->check(true)->isValid()->shouldBe(false);
+        $this->check('', null)->isValid()->shouldBe(false);
+        $this->check('', 12.3)->isValid()->shouldBe(false);
+        $this->check('', [])->isValid()->shouldBe(false);
+        $this->check('', -1)->isValid()->shouldBe(false);
+        $this->check('', true)->isValid()->shouldBe(false);
     }
 }

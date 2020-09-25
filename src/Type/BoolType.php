@@ -2,24 +2,20 @@
 
 namespace Cubicl\StructureCheck\Type;
 
+use Cubicl\StructureCheck\Error;
 use Cubicl\StructureCheck\Result;
 use Cubicl\StructureCheck\ResultInterface;
 
-/**
- * Class BoolType
- * @package Cubicl\Cubicl\StructureCheck\Type
- */
 class BoolType implements TypeInterface
 {
     private static string $errorMessage = 'The value %s is not a boolean.';
 
-    public function check($value): ResultInterface
+    public function check(string $key, $value): ResultInterface
     {
         $checkResult = is_bool($value);
 
-        return new Result(
-            $checkResult,
-            !$checkResult ? [sprintf(self::$errorMessage, json_encode($value))] : []
-        );
+        return $checkResult
+            ? Result::valid()
+            : Result::invalid([new Error($key, sprintf(self::$errorMessage, json_encode($value)))]);
     }
 }

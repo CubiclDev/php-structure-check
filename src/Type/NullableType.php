@@ -14,12 +14,12 @@ class NullableType implements TypeInterface
         $this->child = $child;
     }
 
-    public function check($value): ResultInterface
+    public function check(string $key, $value): ResultInterface
     {
-        if(is_null($value)) {
-            return new Result(true);
+        if($value === null) {
+            return Result::valid();
         }
 
-        return $this->child->check($value);
+        return $this->child->check($key, $value);
     }
 }

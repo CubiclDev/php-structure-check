@@ -2,6 +2,7 @@
 
 namespace Cubicl\StructureCheck\Type;
 
+use Cubicl\StructureCheck\Error;
 use Cubicl\StructureCheck\Result;
 use Cubicl\StructureCheck\ResultInterface;
 
@@ -16,13 +17,14 @@ class RegexType implements TypeInterface
         $this->regex = $regex;
     }
 
-    public function check($value): ResultInterface
+    public function check(string $key, $value): ResultInterface
     {
         $checkResult = is_string($value) && preg_match($this->regex, $value) === 1;
 
-        return new Result(
-            $checkResult,
-            !$checkResult ? [sprintf(self::$errorMessage, json_encode($value), $this->regex)] : []
-        );
+        return $checkResult
+            ? Result::valid()
+            : Result::invalid([
+                new Error($key, sprintf(self::$errorMessage, json_encode($value), json_encode($this->regex)))
+            ]);
     }
 }
