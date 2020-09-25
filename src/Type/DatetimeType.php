@@ -7,23 +7,15 @@ use DateTime;
 use DateTimeZone;
 use Cubicl\StructureCheck\Result;
 use Cubicl\StructureCheck\ResultInterface;
+use JsonException;
 
 class DatetimeType implements TypeInterface
 {
-    /**
-     * @var string
-     */
-    private static $errorMessage = 'The value %s is not a valid datetime.';
+    private static string $errorMessage = 'The value %s is not a valid datetime.';
 
-    /**
-     * @var string
-     */
-    private $datetimeFormat;
+    private string $datetimeFormat;
 
-    /**
-     * @var string
-     */
-    private $datetimeZone;
+    private string $datetimeZone;
 
     public function __construct(string $format, string $datetimeZone)
     {

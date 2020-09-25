@@ -8,7 +8,7 @@ use Cubicl\StructureCheck\ResultInterface;
 
 class StringType implements TypeInterface
 {
-    private static $errorMessage = 'The value %s is not a string.';
+    private static string $errorMessage = 'The value %s is not a string.';
 
     public function check(string $key, $value): ResultInterface
     {

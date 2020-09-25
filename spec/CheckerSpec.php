@@ -9,7 +9,7 @@ use Cubicl\StructureCheck\Type\TypeInterface;
 
 class CheckerSpec extends ObjectBehavior
 {
-    function it_is_initializable()
+    function it_is_initializable(): void
     {
         $this->shouldHaveType(Checker::class);
     }

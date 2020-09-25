@@ -8,16 +8,12 @@ use Cubicl\StructureCheck\ResultInterface;
 
 class ObjectType implements TypeInterface
 {
-    private static $missingKeyErrorMessage = 'The key "%s" does not exists';
+    private static string $missingKeyErrorMessage = 'The key "%s" does not exists';
+
+    /** @var TypeInterface[] */
+    private array $children;
 
     /**
-     * @var TypeInterface[]
-     */
-    private $children;
-
-    /**
-     * ObjectType constructor.
-     *
      * @param TypeInterface[] $children
      */
     public function __construct(array $children)

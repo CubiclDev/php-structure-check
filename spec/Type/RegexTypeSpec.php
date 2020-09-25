@@ -8,28 +8,28 @@ use Cubicl\StructureCheck\Type\RegexType;
 class RegexTypeSpec extends ObjectBehavior
 {
 
-    function it_is_initializable()
+    function it_is_initializable(): void
     {
         $this->beConstructedWith('/^def/');
 
         $this->shouldHaveType(RegexType::class);
     }
 
-    function it_should_return_valid_for_matching_strings()
+    function it_should_return_valid_for_matching_strings(): void
     {
         $this->beConstructedWith('/^def/');
 
         $this->check('', 'definitive')->isValid()->shouldBe(true);
     }
 
-    function it_should_return_invalid_for_not_matching_strings()
+    function it_should_return_invalid_for_not_matching_strings(): void
     {
         $this->beConstructedWith('/^def/');
 
         $this->check('', 'developers')->isValid()->shouldBe(false);
     }
 
-    function it_should_return_invalid_for_others()
+    function it_should_return_invalid_for_others(): void
     {
         $this->beConstructedWith('/^def/');
 

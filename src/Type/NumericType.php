@@ -8,7 +8,7 @@ use Cubicl\StructureCheck\ResultInterface;
 
 class NumericType implements TypeInterface
 {
-    private static $errorMessage = 'The value %s is not a numeric value.';
+    private static string $errorMessage = 'The value %s is not a numeric value.';
 
     public function check(string $key, $value): ResultInterface
     {

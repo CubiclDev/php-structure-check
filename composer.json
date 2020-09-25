@@ -1,6 +1,6 @@
 {
     "name":         "cubicl/php-structure-check",
-    "description":  "Structural check of arrays for PHP 7.1+",
+    "description":  "Structural check of arrays for PHP 7.3+",
     "keywords":     ["array", "structure", "types"],
     "homepage":     "https://github.com/cubicldev/php-structure-check",
     "type":         "library",
@@ -19,9 +19,9 @@
         "tests-spec": "phpspec run --no-interaction"
     },
     "require-dev": {
-        "phpspec/phpspec": "^5.1.0",
-        "phpunit/phpunit": "^7",
-        "phpstan/phpstan": "^0.11.4"
+        "phpspec/phpspec": "^6.2",
+        "phpunit/phpunit": "^9.3",
+        "phpstan/phpstan": "^0.12"
     },
     "autoload": {
         "psr-4": {

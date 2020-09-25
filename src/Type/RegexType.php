@@ -8,15 +8,9 @@ use Cubicl\StructureCheck\ResultInterface;
 
 class RegexType implements TypeInterface
 {
-    /**
-     * @var string
-     */
-    private static $errorMessage = 'The value %s does not match the regex %s';
+    private static string $errorMessage = 'The value %s does not match the regex %s';
 
-    /**
-     * @var string
-     */
-    private $regex;
+    private string $regex;
 
     public function __construct(string $regex)
     {

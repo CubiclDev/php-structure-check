@@ -8,12 +8,9 @@ use Cubicl\StructureCheck\ResultInterface;
 
 class ListType implements TypeInterface
 {
-    private static $isNotAnArrayMessage = 'The given value %s is not an array.';
+    private static string $isNotAnArrayMessage = 'The given value %s is not an array.';
 
-    /**
-     * @var TypeInterface
-     */
-    private $child;
+    private TypeInterface $child;
 
     public function __construct(TypeInterface $child)
     {

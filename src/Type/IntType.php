@@ -8,7 +8,7 @@ use Cubicl\StructureCheck\ResultInterface;
 
 class IntType implements TypeInterface
 {
-    private static $errorMessage = 'The value %s is not an integer.';
+    private static string $errorMessage = 'The value %s is not an integer.';
 
     public function check(string $key, $value): ResultInterface
     {

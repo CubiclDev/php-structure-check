@@ -7,10 +7,7 @@ use Cubicl\StructureCheck\ResultInterface;
 
 class NullableType implements TypeInterface
 {
-    /**
-     * @var TypeInterface
-     */
-    private $child;
+    private TypeInterface $child;
 
     public function __construct(TypeInterface $child)
     {

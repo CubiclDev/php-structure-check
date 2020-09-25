@@ -4,9 +4,9 @@ namespace Cubicl\StructureCheck;
 
 class Error implements ErrorInterface
 {
-    private $key;
+    private string $key;
 
-    private $message;
+    private string $message;
 
     public function __construct(string $key, string $message)
     {

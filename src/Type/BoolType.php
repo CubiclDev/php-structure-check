@@ -8,7 +8,7 @@ use Cubicl\StructureCheck\ResultInterface;
 
 class BoolType implements TypeInterface
 {
-    private static $errorMessage = 'The value %s is not a boolean.';
+    private static string $errorMessage = 'The value %s is not a boolean.';
 
     public function check(string $key, $value): ResultInterface
     {

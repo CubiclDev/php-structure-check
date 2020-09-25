@@ -6,7 +6,7 @@ use Cubicl\StructureCheck\ResultInterface;
 
 class OptionalType implements TypeInterface
 {
-    private $child;
+    private TypeInterface $child;
 
     public function __construct(TypeInterface $child)
     {
