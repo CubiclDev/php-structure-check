@@ -1,8 +1,0 @@
-includes:
-  - vendor/phpstan/phpstan-phpunit/extension.neon
-  - vendor/phpstan/phpstan-deprecation-rules/rules.neon
-parameters:
-  tmpDir: data
-  level: max
-  paths:
-    - src
