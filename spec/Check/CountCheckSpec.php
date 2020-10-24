@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace spec\Cubicl\StructureCheck\Check;
 
 use Cubicl\StructureCheck\Check\CountCheck;

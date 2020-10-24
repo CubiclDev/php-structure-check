@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Cubicl\StructureCheck\Test\Integration\Type;
 
 use PHPUnit\Framework\TestCase;
