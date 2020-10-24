@@ -15,9 +15,6 @@ class OptionalType implements TypeInterface
         $this->child = $child;
     }
 
-    /**
-     * @param mixed $value
-     */
     public function check(string $key, $value): ResultInterface
     {
         return $this->child->check($key, $value);

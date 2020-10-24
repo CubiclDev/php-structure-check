@@ -24,9 +24,6 @@ class DatetimeType implements TypeInterface
         $this->datetimeZone = $datetimeZone;
     }
 
-    /**
-     * @param mixed $value
-     */
     public function check(string $key, $value): ResultInterface
     {
         $checkResult = is_string($value) && $this->isValidDatetime($value);

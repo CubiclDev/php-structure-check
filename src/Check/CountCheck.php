@@ -26,9 +26,6 @@ class CountCheck implements TypeInterface
         $this->count = $count;
     }
 
-    /**
-     * @param mixed $value
-     */
     public function check(string $key, $value): ResultInterface
     {
         $result = $this->child->check($key, $value);
