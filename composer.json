@@ -20,11 +20,14 @@
     "check": [
       "@analyze",
       "@tests",
-      "@tests-spec"
+      "@tests-spec",
+      "@cs-check"
     ],
     "tests": "phpunit tests",
     "analyze": "phpstan analyse --level max",
-    "tests-spec": "phpspec run --no-interaction"
+    "tests-spec": "phpspec run --no-interaction",
+    "cs-check": "phpcs --parallel=50",
+    "cs-fix": "phpcbf"
   },
   "require-dev": {
     "phpspec/phpspec": "^6.2",

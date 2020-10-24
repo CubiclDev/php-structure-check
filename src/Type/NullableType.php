@@ -18,7 +18,7 @@ class NullableType implements TypeInterface
 
     public function check(string $key, $value): ResultInterface
     {
-        if($value === null) {
+        if ($value === null) {
             return Result::valid();
         }
 
