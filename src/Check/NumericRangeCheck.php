@@ -48,7 +48,7 @@ class NumericRangeCheck implements TypeInterface
         $result = $this->child->check($key, $value);
 
         if (!$result->isValid()) {
-           return $result;
+            return $result;
         }
 
         if ($this->lowerBound > $value) {
