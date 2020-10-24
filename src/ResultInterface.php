@@ -1,9 +1,10 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Cubicl\StructureCheck;
 
 /**
- *
  * @package Cubicl\StructureCheck
  */
 interface ResultInterface
@@ -16,7 +17,7 @@ interface ResultInterface
     /**
      * Returns a list of errors. If no error occurred, it will return an empty array.
      *
-     * @return ErrorInterface[]
+     * @return array<ErrorInterface>
      */
     public function getErrors(): array;
 }

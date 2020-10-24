@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Cubicl\StructureCheck\Test\Integration\Type;
 
 use PHPUnit\Framework\TestCase;
@@ -16,14 +18,8 @@ use Cubicl\StructureCheck\Type\OptionalType;
  */
 class ObjectTypeTest extends TestCase
 {
-    /**
-     * @var CheckerInterface
-     */
-    private $checker;
+    private CheckerInterface $checker;
 
-    /**
-     *
-     */
     protected function setUp(): void
     {
         parent::setUp();

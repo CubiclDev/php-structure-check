@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Cubicl\StructureCheck\Type;
 
 use Cubicl\StructureCheck\Error;
@@ -27,8 +29,6 @@ class EnumType implements TypeInterface
     /**
      * @param string $key
      * @param T $value
-     *
-     * @return ResultInterface
      */
     public function check(string $key, $value): ResultInterface
     {

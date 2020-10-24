@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Cubicl\StructureCheck\Type;
 
 use Cubicl\StructureCheck\Error;
@@ -7,7 +9,6 @@ use DateTime;
 use DateTimeZone;
 use Cubicl\StructureCheck\Result;
 use Cubicl\StructureCheck\ResultInterface;
-use JsonException;
 
 class DatetimeType implements TypeInterface
 {

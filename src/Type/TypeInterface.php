@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Cubicl\StructureCheck\Type;
 
 use Cubicl\StructureCheck\ResultInterface;
@@ -7,10 +9,7 @@ use Cubicl\StructureCheck\ResultInterface;
 interface TypeInterface
 {
     /**
-     * @param string $key
-     * @param mixed  $value
-     *
-     * @return ResultInterface
+     * @param mixed $value
      */
     public function check(string $key, $value): ResultInterface;
 }

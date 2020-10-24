@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Cubicl\StructureCheck\Type;
 
 use Cubicl\StructureCheck\Error;
@@ -33,7 +35,6 @@ class ObjectType implements TypeInterface
                     $valid = false;
                     $errors[] = new Error($fullKey, sprintf(self::$missingKeyErrorMessage, $objectProperty));
                 }
-
                 continue;
             }
 
