@@ -9,10 +9,7 @@ use Cubicl\StructureCheck\ResultInterface;
 interface TypeInterface
 {
     /**
-     * @param string $key
-     * @param mixed  $value
-     *
-     * @return ResultInterface
+     * @param mixed $value
      */
     public function check(string $key, $value): ResultInterface;
 }

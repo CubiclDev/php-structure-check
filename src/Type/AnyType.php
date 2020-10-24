@@ -10,7 +10,7 @@ use Cubicl\StructureCheck\ResultInterface;
 class AnyType implements TypeInterface
 {
     /**
-     * @inheritdoc
+     * @param mixed $value
      */
     public function check(string $key, $value): ResultInterface
     {

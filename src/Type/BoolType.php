@@ -12,6 +12,9 @@ class BoolType implements TypeInterface
 {
     private static string $errorMessage = 'The value %s is not a boolean.';
 
+    /**
+     * @param mixed $value
+     */
     public function check(string $key, $value): ResultInterface
     {
         $checkResult = is_bool($value);

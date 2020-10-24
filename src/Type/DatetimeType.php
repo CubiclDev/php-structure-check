@@ -9,7 +9,6 @@ use DateTime;
 use DateTimeZone;
 use Cubicl\StructureCheck\Result;
 use Cubicl\StructureCheck\ResultInterface;
-use JsonException;
 
 class DatetimeType implements TypeInterface
 {
@@ -25,6 +24,9 @@ class DatetimeType implements TypeInterface
         $this->datetimeZone = $datetimeZone;
     }
 
+    /**
+     * @param mixed $value
+     */
     public function check(string $key, $value): ResultInterface
     {
         $checkResult = is_string($value) && $this->isValidDatetime($value);

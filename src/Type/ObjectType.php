@@ -35,7 +35,6 @@ class ObjectType implements TypeInterface
                     $valid = false;
                     $errors[] = new Error($fullKey, sprintf(self::$missingKeyErrorMessage, $objectProperty));
                 }
-
                 continue;
             }
 

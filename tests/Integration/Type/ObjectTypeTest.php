@@ -18,14 +18,8 @@ use Cubicl\StructureCheck\Type\OptionalType;
  */
 class ObjectTypeTest extends TestCase
 {
-    /**
-     * @var CheckerInterface
-     */
-    private $checker;
+    private CheckerInterface $checker;
 
-    /**
-     *
-     */
     protected function setUp(): void
     {
         parent::setUp();

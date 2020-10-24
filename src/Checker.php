@@ -9,7 +9,7 @@ use Cubicl\StructureCheck\Type\TypeInterface;
 class Checker implements CheckerInterface
 {
     /**
-     * @inheritdoc
+     * @param mixed $element
      */
     public function fulfills($element, TypeInterface $requirement): ResultInterface
     {

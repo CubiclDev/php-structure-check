@@ -19,6 +19,9 @@ class ListType implements TypeInterface
         $this->child = $child;
     }
 
+    /**
+     * @param mixed $value
+     */
     public function check(string $key, $value): ResultInterface
     {
         if (!is_array($value)) {
@@ -40,6 +43,5 @@ class ListType implements TypeInterface
         return $valid
             ? Result::valid()
             : Result::invalid($errors);
-
     }
 }
