@@ -9,9 +9,6 @@ use Cubicl\StructureCheck\ResultInterface;
 
 class AnyType implements TypeInterface
 {
-    /**
-     * @param mixed $value
-     */
     public function check(string $key, $value): ResultInterface
     {
         return Result::valid();

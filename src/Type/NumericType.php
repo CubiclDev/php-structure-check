@@ -12,9 +12,6 @@ class NumericType implements TypeInterface
 {
     private static string $errorMessage = 'The value %s is not a numeric value.';
 
-    /**
-     * @param mixed $value
-     */
     public function check(string $key, $value): ResultInterface
     {
         $checkResult = is_numeric($value);
