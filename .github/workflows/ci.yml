@@ -10,8 +10,24 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
+    strategy:
+      matrix:
+        operating-system: [ ubuntu-latest ]
+        php: [ '7.4' ]
+#        php: [ '7.4', '8.0' ]
+
+    name: PHP ${{ matrix.php }}
+
     steps:
       - uses: actions/checkout@v2
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php }}
+          tools: composer:v2
+          coverage: none
+          ini-values: expose_php=1
 
       - name: Validate composer.json and composer.lock
         run: composer validate
