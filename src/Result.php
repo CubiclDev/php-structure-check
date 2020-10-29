@@ -50,7 +50,7 @@ class Result implements ResultInterface
     }
 
     /**
-     * @return array
+     * @return array<ErrorInterface>
      */
     public function getErrors(): array
     {
