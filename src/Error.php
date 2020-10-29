@@ -16,11 +16,17 @@ class Error implements ErrorInterface
         $this->message = $message;
     }
 
+    /**
+     * @return string
+     */
     public function getKey(): string
     {
         return $this->key;
     }
 
+    /**
+     * @return string
+     */
     public function getMessage(): string
     {
         return $this->message;

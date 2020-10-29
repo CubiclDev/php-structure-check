@@ -16,6 +16,11 @@ class NullableType implements TypeInterface
         $this->child = $child;
     }
 
+    /**
+     * @param string $key
+     * @param mixed $value
+     * @return ResultInterface
+     */
     public function check(string $key, $value): ResultInterface
     {
         if ($value === null) {

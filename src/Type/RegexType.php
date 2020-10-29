@@ -19,6 +19,11 @@ class RegexType implements TypeInterface
         $this->regex = $regex;
     }
 
+    /**
+     * @param string $key
+     * @param mixed $value
+     * @return ResultInterface
+     */
     public function check(string $key, $value): ResultInterface
     {
         $checkResult = is_string($value) && preg_match($this->regex, $value) === 1;

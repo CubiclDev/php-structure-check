@@ -11,6 +11,7 @@ interface ResultInterface
 {
     /**
      * Returns TRUE if the check was successful.
+     * @return bool
      */
     public function isValid(): bool;
 

@@ -23,6 +23,11 @@ class ObjectType implements TypeInterface
         $this->children = $children;
     }
 
+    /**
+     * @param string $key
+     * @param mixed $value
+     * @return ResultInterface
+     */
     public function check(string $key, $value): ResultInterface
     {
         $errors = [];

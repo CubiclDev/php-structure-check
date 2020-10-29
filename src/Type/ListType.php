@@ -19,6 +19,11 @@ class ListType implements TypeInterface
         $this->child = $child;
     }
 
+    /**
+     * @param string $key
+     * @param mixed $value
+     * @return ResultInterface
+     */
     public function check(string $key, $value): ResultInterface
     {
         if (!is_array($value)) {
