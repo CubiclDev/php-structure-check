@@ -6,6 +6,9 @@ namespace Cubicl\StructureCheck;
 
 class Result implements ResultInterface
 {
+    /**
+     * @var bool
+     */
     private bool $valid;
 
     /**
@@ -22,6 +25,9 @@ class Result implements ResultInterface
         $this->errors = $errors;
     }
 
+    /**
+     * @return ResultInterface
+     */
     public static function valid(): ResultInterface
     {
         return new self(true, []);
@@ -35,11 +41,17 @@ class Result implements ResultInterface
         return new self(false, $errors);
     }
 
+    /**
+     * @return bool
+     */
     public function isValid(): bool
     {
         return $this->valid;
     }
 
+    /**
+     * @return array
+     */
     public function getErrors(): array
     {
         return $this->errors;

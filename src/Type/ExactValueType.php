@@ -23,6 +23,11 @@ class ExactValueType implements TypeInterface
         $this->value = $value;
     }
 
+    /**
+     * @param string $key
+     * @param mixed $value
+     * @return ResultInterface
+     */
     public function check(string $key, $value): ResultInterface
     {
         $checkResult = $this->value === $value;

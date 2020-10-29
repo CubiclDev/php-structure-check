@@ -12,6 +12,11 @@ class FloatType implements TypeInterface
 {
     private static string $errorMessage = 'The value %s is not a float.';
 
+    /**
+     * @param string $key
+     * @param mixed $value
+     * @return ResultInterface
+     */
     public function check(string $key, $value): ResultInterface
     {
         $checkResult = is_float($value);

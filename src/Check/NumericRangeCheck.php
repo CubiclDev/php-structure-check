@@ -43,6 +43,11 @@ class NumericRangeCheck implements TypeInterface
         $this->lowerBound = $lowerBound;
     }
 
+    /**
+     * @param string $key
+     * @param mixed $value
+     * @return ResultInterface
+     */
     public function check(string $key, $value): ResultInterface
     {
         $result = $this->child->check($key, $value);

@@ -24,6 +24,11 @@ class DatetimeType implements TypeInterface
         $this->datetimeZone = $datetimeZone;
     }
 
+    /**
+     * @param string $key
+     * @param mixed $value
+     * @return ResultInterface
+     */
     public function check(string $key, $value): ResultInterface
     {
         $checkResult = is_string($value) && $this->isValidDatetime($value);
@@ -33,6 +38,10 @@ class DatetimeType implements TypeInterface
             : Result::invalid([new Error($key, sprintf(self::$errorMessage, json_encode($value)))]);
     }
 
+    /**
+     * @param string $value
+     * @return bool
+     */
     private function isValidDatetime(string $value): bool
     {
         $date = DateTime::createFromFormat($this->datetimeFormat, $value, new DateTimeZone($this->datetimeZone));
