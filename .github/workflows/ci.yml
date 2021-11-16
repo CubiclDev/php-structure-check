@@ -13,8 +13,7 @@ jobs:
     strategy:
       matrix:
         operating-system: [ ubuntu-latest ]
-        php: [ '7.4' ]
-#        php: [ '7.4', '8.0' ]
+        php: [ '7.4', '8.0' ]
 
     name: PHP ${{ matrix.php }}
 

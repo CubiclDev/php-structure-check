@@ -1,6 +1,6 @@
 {
   "name": "cubicl/php-structure-check",
-  "description": "Structural check of arrays for PHP 7.3+",
+  "description": "Structural check of arrays for PHP 7.4+",
   "keywords": [
     "array",
     "structure",
@@ -49,6 +49,6 @@
   },
   "require": {
     "ext-json": "*",
-    "php": "^7.4"
+    "php": "^7.4|^8.0"
   }
 }
