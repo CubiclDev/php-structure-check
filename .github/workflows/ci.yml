@@ -39,6 +39,9 @@ jobs:
       - name: Install dependencies
         run: composer install --prefer-dist --no-progress
 
+      - name: Run spec tests
+        run: composer tests-spec
+
       - name: Run tests suite
         run: composer tests
 
