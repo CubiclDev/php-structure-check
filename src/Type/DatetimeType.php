@@ -38,6 +38,6 @@ class DatetimeType implements TypeInterface
         $date = DateTime::createFromFormat($this->datetimeFormat, $value, new DateTimeZone($this->datetimeZone));
         $errors = DateTime::getLastErrors();
 
-        return $date && !$errors;
+        return $date && (!$errors || $errors['warning_count'] === 0 && $errors['error_count'] === 0);
     }
 }
